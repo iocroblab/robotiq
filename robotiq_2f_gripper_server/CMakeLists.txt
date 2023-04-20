@@ -196,3 +196,8 @@ include_directories(
 add_executable(gripper_server src/gripper_server.cpp)
 add_dependencies(gripper_server ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS} )
 target_link_libraries(gripper_server  ${catkin_LIBRARIES} )
+
+
+add_executable(gripper_client src/gripper_client.cpp)
+add_dependencies(gripper_client ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS} )
+target_link_libraries(gripper_client  ${catkin_LIBRARIES} )

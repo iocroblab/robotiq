@@ -17,4 +17,5 @@
   <depend>roscpp</depend>
   <depend>rospy</depend>
   <depend>robotiq_2f_gripper_control</depend>
+  <depend>robotiq_modbus_rtu</depend>
 </package>

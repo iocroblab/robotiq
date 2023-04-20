@@ -22,8 +22,8 @@ void statusReceived(const robotiq_2f_gripper_control::Robotiq2FGripper_robot_inp
   status.gCU = msgIn.gCU;
 }
 
-bool gripper_status(std_srvs::Empty::Request  &req,
-         std_srvs::Empty::Response &res)
+bool gripper_status(robotiq_2f_gripper_server::Status::Request  &req,
+         robotiq_2f_gripper_server::Status::Response &res)
 {
   ROS_INFO("Gripper Status Service");
   std::stringstream output;
@@ -94,6 +94,7 @@ bool gripper_status(std_srvs::Empty::Request  &req,
   output << "Current of Fingers: " + std::to_string(status.gCU * 10) + " mA\n";
 
   ROS_INFO_STREAM(output.str());
+  res.gripperstatus=status;
   return true;
 }
 
