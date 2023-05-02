@@ -40,9 +40,12 @@ int main(int argc, char **argv)
   gripperResetClient.call(vreq,vres);
   ros::Duration(1.0).sleep();
 
+  //Wait for user to press a key
+  std::cout<<"\nPRESS a key to ACTIVATE the gripper" << std::endl;
+  std::cin.get();
   std::cout<<"\nCalling ACTIVATE..." << std::endl;
   gripperActivateClient.call(vreq,vres);
-  ros::Duration(1.0).sleep();
+  ros::Duration(3.0).sleep();
 
   int signe = -1;
 
@@ -69,7 +72,7 @@ int main(int argc, char **argv)
       robotiq_2f_gripper_server::Status::Response sres;
       gripperStatusClient.call(sreq,sres);
       ROS_INFO_STREAM(sres.gripperstatus);
-      ros::Duration(1.0).sleep();      
+      ros::Duration(1.0).sleep();
 /*
     std::cout<<"\nCalling MOVE..." << std::endl;
     robotiq_2f_gripper_server::Move::Request mreq;
